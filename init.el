@@ -133,6 +133,3 @@ by Prelude.")
  (run-at-time 5 nil 'prelude-tip-of-the-day))
 
 ;;; init.el ends here
-(unless (package-installed-p 'web-mode)
-  (package-install 'web-mode))
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
