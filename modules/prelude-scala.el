@@ -33,7 +33,7 @@
 ;;; Code:
 
 (require 'prelude-programming)
-(prelude-require-packages '(scala-mode2))
+(prelude-require-packages '(scala-mode2 sbt-mode))
 
 (defun prelude-scala-mode-defaults ()
   (subword-mode +1))
