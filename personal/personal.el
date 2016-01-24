@@ -22,4 +22,10 @@
 
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
 
+(unless (package-installed-p 'neotree)
+  (package-install 'neotree))
+
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
 ;; personal.el ends here
