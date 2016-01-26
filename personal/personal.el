@@ -28,4 +28,6 @@
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 
+(setq nrepl-log-messages nil)
+
 ;; personal.el ends here
