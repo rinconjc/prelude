@@ -13,6 +13,7 @@
   (package-install 'clj-refactor))
 
 (require 'clj-refactor)
+;; (add-hook 'cider-mode-hook #'eldoc-mode)
 
 (defun my-clojure-mode-hook ()
   (clj-refactor-mode 1)
@@ -30,4 +31,12 @@
 
 (setq nrepl-log-messages nil)
 
+(unless (package-installed-p 'sublime-themes)
+  (package-install 'sublime-themes))
+
+(unless (package-installed-p 'helm-ag)
+  (package-install 'helm-ag))
+;; (disable-theme 'zenburn)
+;; (load-theme 'spolsky t)
+(setq cider-prompt-for-symbol nil)
 ;; personal.el ends here
