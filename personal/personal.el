@@ -30,4 +30,13 @@
 
 (setq nrepl-log-messages nil)
 
-;; personal.el ends here
+(setq prelude-guru nil)
+
+(unless (package-installed-p 'sql-indent)
+  (package-install 'sql-indent))
+
+;; install elm-mode
+(unless (package-installed-p 'elm-mode)
+  (package-install 'elm-mode))
+
+;;; personal.el ends here
