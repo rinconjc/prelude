@@ -40,3 +40,9 @@
 ;; (load-theme 'spolsky t)
 (setq cider-prompt-for-symbol nil)
 ;; personal.el ends here
+;; re-frame cider
+(setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+
+(setq prelude-guru nil)
+
+;;; personal.el ends here
