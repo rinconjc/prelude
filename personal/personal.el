@@ -12,8 +12,6 @@
 (unless (package-installed-p 'clj-refactor)
   (package-install 'clj-refactor))
 
-(require 'clj-refactor)
-
 (defun my-clojure-mode-hook ()
   (clj-refactor-mode 1)
   (yas-minor-mode 1) ; for adding require/use/import statements
@@ -38,5 +36,8 @@
 ;; install elm-mode
 (unless (package-installed-p 'elm-mode)
   (package-install 'elm-mode))
+(add-to-list 'company-backends 'company-elm)
 
+(setq-default cursor-type 'bar)
+(set-cursor-color "#ffffff")
 ;;; personal.el ends here
