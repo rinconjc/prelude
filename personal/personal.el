@@ -28,16 +28,24 @@
 
 (setq nrepl-log-messages nil)
 
-(setq prelude-guru nil)
+(unless (package-installed-p 'sublime-themes)
+  (package-install 'sublime-themes))
 
-(unless (package-installed-p 'sql-indent)
-  (package-install 'sql-indent))
+(unless (package-installed-p 'helm-ag)
+  (package-install 'helm-ag))
+;; (disable-theme 'zenburn)
+;; (load-theme 'spolsky t)
+(setq cider-prompt-for-symbol nil)
+;; personal.el ends here
+;; re-frame cider
+(setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 
 ;; install elm-mode
 (unless (package-installed-p 'elm-mode)
   (package-install 'elm-mode))
 (add-to-list 'company-backends 'company-elm)
 
+(setq prelude-guru nil)
 (setq-default cursor-type 'bar)
 (set-cursor-color "#ffffff")
 ;;; personal.el ends here
