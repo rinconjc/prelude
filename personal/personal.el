@@ -48,4 +48,35 @@
 (setq prelude-guru nil)
 (setq-default cursor-type 'bar)
 (set-cursor-color "#ffffff")
+
+(unless (package-installed-p 'flycheck-inline)
+  (package-install 'flycheck-inline))
+
+;; ============== RUST =====================
+(unless (package-installed-p 'rust-mode)
+  (package-install 'rust-mode))
+
+(unless (package-installed-p 'cargo)
+  (package-install 'cargo))
+
+(unless (package-installed-p 'racer)
+  (package-install 'racer))
+
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook #'company-mode)
+
+(unless (package-installed-p 'flycheck-rust)
+  (package-install 'flycheck-rust))
+
+(with-eval-after-load 'rust-mode
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+
+(require 'rust-mode)
+(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+(setq company-tooltip-align-annotations t)
+
+(with-eval-after-load 'flycheck
+  (flycheck-inline-mode))
+
 ;;; personal.el ends here
