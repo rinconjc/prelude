@@ -1,9 +1,16 @@
+(message "starting personal")
 (prelude-require-packages '(multiple-cursors))
 ;; === multi=cursor-keys ============
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+;; =========== custom overrides ============
+
+(setq prelude-guru nil)
+(setq-default cursor-type 'bar)
+(add-to-list 'default-frame-alist '(cursor-color . "#ffffff"))
 
 ;; ==== magit defaults ============
 (setq magit-push-always-verify nil)
