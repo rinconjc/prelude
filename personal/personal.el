@@ -12,6 +12,17 @@
 (setq-default cursor-type 'bar)
 (add-to-list 'default-frame-alist '(cursor-color . "#ffffff"))
 
+(setq js-indent-level 2)
+
+(defun my-web-mode-hook ()
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-script-padding 4)
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-enable-auto-closing 1)
+  (setq web-mode-enable-auto-expanding 1))
+
+(add-hook 'web-mode-hook #'my-web-mode-hook)
+
 ;; ==== magit defaults ============
 (setq magit-push-always-verify nil)
 
@@ -45,7 +56,8 @@
 (setq cider-prompt-for-symbol nil)
 ;; personal.el ends here
 ;; re-frame cider
-(setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+;; (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+(setq cider-default-cljs-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 
 ;; install elm-mode
 (unless (package-installed-p 'elm-mode)
