@@ -26,7 +26,10 @@
 ;; ==== magit defaults ============
 (setq magit-push-always-verify nil)
 
-(package-refresh-contents)
+;; =========== CLOJURE =======================
+
+(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+
 (unless (package-installed-p 'clj-refactor)
   (package-install 'clj-refactor))
 
@@ -38,6 +41,10 @@
 
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
 
+(setq cider-prompt-for-symbol nil)
+;; (setq cider-default-cljs-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+
+;; ============ OTHER PACKAGES =================
 (unless (package-installed-p 'neotree)
   (package-install 'neotree))
 
@@ -53,13 +60,7 @@
   (package-install 'helm-ag))
 ;; (disable-theme 'zenburn)
 ;; (load-theme 'spolsky t)
-(setq cider-prompt-for-symbol nil)
-;; personal.el ends here
-;; re-frame cider
-;; (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
-(setq cider-default-cljs-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 
-;; install elm-mode
 (unless (package-installed-p 'elm-mode)
   (package-install 'elm-mode))
 (add-to-list 'company-backends 'company-elm)
