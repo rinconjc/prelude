@@ -46,32 +46,21 @@
 (setq cider-save-file-on-load t)
 
 ;; ============ OTHER PACKAGES =================
-(unless (package-installed-p 'neotree)
-  (package-install 'neotree))
+;; extra packages
+(dolist (pkg (list 'urlenc 'neotree 'sublime-themes 'helm-ag 'elm-mode 'flycheck-inline))
+  (unless (package-installed-p pkg)
+    (package-install pkg)))
 
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 
 (setq nrepl-log-messages nil)
 
-(unless (package-installed-p 'sublime-themes)
-  (package-install 'sublime-themes))
-
-(unless (package-installed-p 'helm-ag)
-  (package-install 'helm-ag))
-;; (disable-theme 'zenburn)
-;; (load-theme 'spolsky t)
-
-(unless (package-installed-p 'elm-mode)
-  (package-install 'elm-mode))
 (add-to-list 'company-backends 'company-elm)
 
 (setq prelude-guru nil)
 (setq-default cursor-type 'bar)
 (set-cursor-color "#ffffff")
-
-(unless (package-installed-p 'flycheck-inline)
-  (package-install 'flycheck-inline))
 
 ;; ============== RUST =====================
 (unless (package-installed-p 'rust-mode)
@@ -99,5 +88,6 @@
 
 (with-eval-after-load 'flycheck
   (flycheck-inline-mode))
+
 
 ;;; personal.el ends here
