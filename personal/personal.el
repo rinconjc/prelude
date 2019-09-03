@@ -47,9 +47,6 @@
 (setq cider-default-cljs-repl 'figwheel-main)
 (setq cider-save-file-on-load t)
 
-(setq cider-default-cljs-repl 'figwheel-main)
-(setq cider-save-file-on-load t)
-
 ;; ============ OTHER PACKAGES =================
 ;; extra packages
 (dolist (pkg (list 'urlenc 'neotree 'sublime-themes 'helm-ag 'elm-mode 'flycheck-inline))
