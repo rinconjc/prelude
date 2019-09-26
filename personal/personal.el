@@ -7,7 +7,7 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 (global-set-key (kbd "C-s-c") 'sp-copy-sexp)
-(ffap-bindings)
+;; (ffap-bindings)
 ;; =========== custom overrides ============
 
 (setq prelude-guru nil)
