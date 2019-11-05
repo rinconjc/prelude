@@ -49,7 +49,7 @@
 
 ;; ============ OTHER PACKAGES =================
 ;; extra packages
-(dolist (pkg (list 'urlenc 'neotree 'sublime-themes 'helm-ag 'elm-mode 'flycheck-inline))
+(dolist (pkg (list 'urlenc 'neotree 'sublime-themes 'helm-ag 'elm-mode 'flycheck-inline 'material-theme))
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
@@ -91,5 +91,12 @@
 (with-eval-after-load 'flycheck
   (flycheck-inline-mode))
 
+;; default theme
+(disable-theme 'zenburn)
+(load-theme 'material)
+
+;; use python3
+
+(setq python-shell-interpreter "python3")
 
 ;;; personal.el ends here
