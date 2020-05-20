@@ -14,10 +14,10 @@
 (setq-default cursor-type 'bar)
 (add-to-list 'default-frame-alist '(cursor-color . "#ffffff"))
 
-(setq js-indent-level 2)
+(setq js-indent-level 4)
 
 (defun my-web-mode-hook ()
-  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-code-indent-offset 4)
   (setq web-mode-script-padding 4)
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-enable-auto-closing 1)
@@ -39,7 +39,8 @@
   (clj-refactor-mode 1)
   (yas-minor-mode 1) ; for adding require/use/import statements
   ;; This choice of keybinding leaves cider-macroexpand-1 unbound
-  (cljr-add-keybindings-with-prefix "M-["))
+  (cljr-add-keybindings-with-prefix "M-[")
+  (require 'flycheck-clj-kondo))
 
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
 
@@ -49,7 +50,8 @@
 
 ;; ============ OTHER PACKAGES =================
 ;; extra packages
-(dolist (pkg (list 'urlenc 'neotree 'sublime-themes 'helm-ag 'elm-mode 'flycheck-inline 'material-theme))
+(dolist (pkg (list 'urlenc 'neotree 'sublime-themes 'helm-ag 'elm-mode
+                   'flycheck-inline 'material-theme 'flycheck-clj-kondo))
   (unless (package-installed-p pkg)
     (package-install pkg)))
 
@@ -92,11 +94,20 @@
   (flycheck-inline-mode))
 
 ;; default theme
-(disable-theme 'zenburn)
-(load-theme 'material)
+;; (disable-theme 'zenburn)
+;; (load-theme 'material)
 
 ;; use python3
 
 (setq python-shell-interpreter "python3")
+
+
+;; java support
+
+(unless (package-installed-p 'lsp-java)
+  (package-install 'lsp-java))
+
+(require 'lsp-java)
+(add-hook 'java-mode-hook #'lsp)
 
 ;;; personal.el ends here
